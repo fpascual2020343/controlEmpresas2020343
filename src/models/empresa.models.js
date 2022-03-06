@@ -3,11 +3,13 @@ const Schema = mongoose.Schema;
 
 const empresaSchema = new Schema({
 
+    nombre: String,
+    apellido: String,
+    email: String,
+    telefono: String,
     puesto: String,
     departamento: String,
-    idEmpleado: {type: Schema.Types.ObjectId, ref: "Empleados"},
     idEmpresa: {type: Schema.Types.ObjectId, ref: "Usuarios"}
-
 })
 
 module.exports = mongoose.model('Empresas', empresaSchema);
