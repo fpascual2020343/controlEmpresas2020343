@@ -1,0 +1,29 @@
+{
+  "name": "controlempresas2020343",
+  "version": "1.0.0",
+  "description": "Este es el primer proyecto de taller",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fpascual2020343/ControlEmpresas2020343IN6BV.git"
+  },
+  "author": "Franshesco Pascual",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fpascual2020343/ControlEmpresas2020343IN6BV/issues"
+  },
+  "homepage": "https://github.com/fpascual2020343/ControlEmpresas2020343IN6BV#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "^0.0.3",
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "jwt-simple": "^0.5.6",
+    "moment": "^2.29.1",
+    "mongoose": "^6.2.3",
+    "nodemon": "^2.0.15"
+  }
+}
