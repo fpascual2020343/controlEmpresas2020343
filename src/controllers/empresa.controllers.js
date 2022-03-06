@@ -4,11 +4,11 @@ function agregarEmpleado(req, res){
     const parametros = req.body;
     const modeloEmpresa = new empresa();
 
-            if(parametros.nombre && parametros.correo && parametros.puesto && parametros.departamento){
+            if(parametros.nombre && parametros.email && parametros.puesto && parametros.departamento){
 
                 modeloEmpresa.nombre = parametros.nombre;
                 modeloEmpresa.apellido = parametros.apellido;
-                modeloEmpresa.correo = parametros.correo;
+                modeloEmpresa.email = parametros.email;
                 modeloEmpresa.telefono = parametros.telefono;
                 modeloEmpresa.departamento = parametros.departamento;
                 modeloEmpresa.puesto = parametros.puesto;
@@ -75,8 +75,24 @@ function eliminarEmpleado(req, res){
 }
 
 
+//Busquedas 
+
+function obtenerEmpleados(req, res) {
+
+    empresa.find( (err, empleadosEncontrados) => {
+
+        if(err) return res.status(500).send({ mensaje: 'Error en la Peticion'});
+        if(!empleadosEncontrados) return res.status(500).send({ mensaje: 'Error al obtener los empleados'});
+
+        return res.status(200).send({empleados: empleadosEncontrados});
+    })
+}
+
+
 module.exports = {
     agregarEmpleado,
     editarEmpleado,
-    eliminarEmpleado
+    eliminarEmpleado,
+
+    obtenerEmpleados
 }

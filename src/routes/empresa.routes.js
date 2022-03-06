@@ -11,4 +11,7 @@ api.post('/agregarEmpleado', [md_autenticacion.Auth, md_roles.verEmpresa], contr
 api.put('/editarEmpleado/:idEmpleado', [md_autenticacion.Auth, md_roles.verEmpresa], controladorEmpresa.editarEmpleado);
 api.delete('/eliminarEmpleado/:idEmpleado', [md_autenticacion.Auth, md_roles.verEmpresa], controladorEmpresa.eliminarEmpleado);
 
+//Buscar empleados por los diferentes campos
+api.get('/buscarEmpleados', [md_autenticacion.Auth, md_roles.verEmpresa], controladorEmpresa.obtenerEmpleados);
+
 module.exports = api;
