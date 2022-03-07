@@ -10,8 +10,13 @@ const api = express.Router();
 api.post('/agregarEmpleado', [md_autenticacion.Auth, md_roles.verEmpresa], controladorEmpresa.agregarEmpleado);
 api.put('/editarEmpleado/:idEmpleado', [md_autenticacion.Auth, md_roles.verEmpresa], controladorEmpresa.editarEmpleado);
 api.delete('/eliminarEmpleado/:idEmpleado', [md_autenticacion.Auth, md_roles.verEmpresa], controladorEmpresa.eliminarEmpleado);
-
-//Buscar empleados por los diferentes campos
-api.get('/buscarEmpleados', [md_autenticacion.Auth, md_roles.verEmpresa], controladorEmpresa.obtenerEmpleados);
+//Asignacion de empleados a departamento y puesto
+api.post('/asignarEmpleado', [md_autenticacion.Auth, md_roles.verEmpresa], controladorEmpresa.agregarPuestoyDepartamentoAEmpleado);
+//Busquedas
+api.get('/obtenerEmpleados', [md_autenticacion.Auth, md_roles.verEmpresa], controladorEmpresa.obtenerEmpleadosEmpresa);
+api.get('/buscarEmpleadoPorId/:idEmpleado', [md_autenticacion.Auth, md_roles.verEmpresa], controladorEmpresa.obtenerEmpleadoPorId);
+api.get('/obtenerEmpleadosPorDepartamento', [md_autenticacion.Auth, md_roles.verEmpresa], 
+        controladorEmpresa.obtenerEmpleadoPorDepartamento);
+api.get('/obtenerEmpleadosPorPuesto', [md_autenticacion.Auth, md_roles.verEmpresa], controladorEmpresa.obtenerEmpleadoPorPuesto);
 
 module.exports = api;
